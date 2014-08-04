@@ -16,8 +16,9 @@ public abstract class Synth {
     private boolean mIsRunning;
     private double mPhase;
     private double mFrequency;
+    private String mLabel;
 
-    protected Synth(double frequency) {
+    protected Synth(double frequency, String label) {
         mBufferSize = AudioTrack.getMinBufferSize(SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT);
         mAudioTrack = new AudioTrack(AudioManager.STREAM_MUSIC,
                 SAMPLE_RATE,
@@ -25,6 +26,7 @@ public abstract class Synth {
                 AUDIO_FORMAT,
                 mBufferSize,
                 AudioTrack.MODE_STREAM);
+        mLabel = label;
         mFrequency = frequency;
         mPhase = 0.0;
         mThread = new Thread() {
@@ -56,6 +58,10 @@ public abstract class Synth {
 
     public int getBufferSize() {
         return mBufferSize;
+    }
+
+    public String getLabel() {
+        return mLabel;
     }
 
     public Thread getThread() {
@@ -106,11 +112,10 @@ public abstract class Synth {
 
     public void stop() {
         mIsRunning = false;
+        setPhase(0.0);
     }
 
     public void destroy() {
         mThread.interrupt();
     }
-
-
 }

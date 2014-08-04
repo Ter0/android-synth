@@ -3,7 +3,7 @@ package net.ter0.synth;
 public class TriangleSynth extends Synth {
 
     public TriangleSynth(double frequency) {
-        super(frequency);
+        super(frequency, "Triangle");
     }
 
     @Override

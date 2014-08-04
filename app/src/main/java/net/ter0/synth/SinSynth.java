@@ -3,7 +3,7 @@ package net.ter0.synth;
 public class SinSynth extends Synth {
 
     public SinSynth(double frequency) {
-        super(frequency);
+        super(frequency, "Sin");
     }
 
     @Override

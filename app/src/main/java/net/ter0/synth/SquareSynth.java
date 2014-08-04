@@ -1,12 +1,8 @@
 package net.ter0.synth;
 
-import android.util.Log;
-
-import java.util.Arrays;
-
 public class SquareSynth extends Synth {
     public SquareSynth(double frequency) {
-        super(frequency);
+        super(frequency, "Square");
     }
 
     @Override

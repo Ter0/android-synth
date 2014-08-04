@@ -2,7 +2,7 @@ package net.ter0.synth;
 
 public class SawtoothSynth extends Synth {
     public SawtoothSynth(double frequency) {
-        super(frequency);
+        super(frequency, "Sawtooth");
     }
 
     @Override

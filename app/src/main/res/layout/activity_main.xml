@@ -6,39 +6,8 @@
     android:weightSum="4"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/sin"
+    <ListView
+        android:id="@+id/synth_list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@android:color/holo_red_light"
-        android:gravity="center"
-        android:text="sin" />
-
-    <TextView
-        android:id="@+id/square"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@android:color/holo_blue_light"
-        android:gravity="center"
-        android:text="square" />
-
-    <TextView
-        android:id="@+id/triangle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@android:color/holo_green_light"
-        android:gravity="center"
-        android:text="triangle" />
-
-    <TextView
-        android:id="@+id/sawtooth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@android:color/darker_gray"
-        android:gravity="center"
-        android:text="sawtooth" />
+        android:layout_height="match_parent" />
 </LinearLayout>
