@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 
 public class MainActivity extends Activity {
@@ -45,15 +47,16 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_add_synth:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 LayoutInflater inflater = getLayoutInflater();
-                builder.setView(inflater.inflate(R.layout.add_synth_dialog, null));
+                final View view = inflater.inflate(R.layout.add_synth_dialog, null);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setView(view);
                 builder.setTitle("Add new Synthesizer");
                 builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String type = getResources().getStringArray(R.array.synth_types)[which];
-                        double frequency = Double.parseDouble(((EditText) findViewById(R.id.editText)).getText().toString());
+                        String type = ((Spinner) view.findViewById(R.id.synth_type_spinner)).getSelectedItem().toString().toLowerCase();
+                        double frequency = Double.parseDouble(((EditText) view.findViewById(R.id.frequency_edittext)).getText().toString());
                         if (type.equals("sin")) {
                             mSynthAdapter.add(new SinSynth(frequency));
                         } else if (type.equals("sawtooth")) {

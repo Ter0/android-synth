@@ -64,30 +64,6 @@ public abstract class Synth {
         return mLabel;
     }
 
-    public Thread getThread() {
-        return mThread;
-    }
-
-    public void setThread(Thread mThread) {
-        this.mThread = mThread;
-    }
-
-    public AudioTrack getAudioTrack() {
-        return mAudioTrack;
-    }
-
-    public void setAudioTrack(AudioTrack mAudioTrack) {
-        this.mAudioTrack = mAudioTrack;
-    }
-
-    public boolean isIsRunning() {
-        return mIsRunning;
-    }
-
-    public void setIsRunning(boolean mIsRunning) {
-        this.mIsRunning = mIsRunning;
-    }
-
     public double getPhase() {
         return mPhase;
     }
@@ -100,10 +76,6 @@ public abstract class Synth {
         return mFrequency;
     }
 
-    public void setFrequency(double mFrequency) {
-        this.mFrequency = mFrequency;
-    }
-
     protected abstract void generateSamples(short[] samples);
 
     public void start() {
@@ -112,7 +84,6 @@ public abstract class Synth {
 
     public void stop() {
         mIsRunning = false;
-        setPhase(0.0);
     }
 
     public void destroy() {

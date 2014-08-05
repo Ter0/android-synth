@@ -23,8 +23,9 @@ public class SynthAdapter extends ArrayAdapter<Synth> {
 
         final Synth synth = getItem(position);
 
-        ((TextView) convertView.findViewById(R.id.synth_label)).setText(synth.getLabel());
-        convertView.setOnTouchListener(new View.OnTouchListener() {
+        ((TextView) convertView.findViewById(R.id.synth_type)).setText(synth.getLabel());
+        ((TextView) convertView.findViewById(R.id.frequency)).setText(Double.toString(synth.getFrequency()) + " Hz");
+        convertView.findViewById(R.id.play_button).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
